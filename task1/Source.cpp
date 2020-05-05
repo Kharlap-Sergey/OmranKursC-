@@ -15,15 +15,16 @@ int main() {
 		switch (step) {
 		case 1: {
 			cout << "введите слова чере ',' оканчивающиеся '.'\n";
-		    words = new char[MAXLEN];
+		    char *words = new char[MAXLEN];
 			cin.get();
 			cin.get(words, MAXLEN - 10, '.');
 			cin.get();
 			cout << "введите преставки чере ',' оканчивающиеся '.'\n";
-			prefixes = new char[MAXLEN];
+			char *prefixes = new char[MAXLEN];
 			cin.get(prefixes, MAXLEN - 10, '.');
 			cin.get();
 
+			fstream out;
 			out.open("prefixes.txt");
 			out << prefixes << '/';
 			out.close();
@@ -33,8 +34,8 @@ int main() {
 			break;
 		}
 		case 2: {
-			char* words = echo("words.txt");
-			char* prefixes = echo("prefixes.txt");
+			char *words = echo("words.txt");
+			char *prefixes = echo("prefixes.txt");
 
 			cout << "преставки:";
 			cout << prefixes << endl;;

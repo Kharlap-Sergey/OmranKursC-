@@ -1,17 +1,12 @@
 #include <fstream>
 #include <iostream>
 
+using namespace std;
+
 const int NUMW = 100; // lines text is in words
 const int NW = 200; // word lenght
 const int MAXLEN = NUMW * NW + 10;
 
-using namespace std;
-
-ifstream in;
-ofstream out;
-
-char* words;
-char* prefixes;
 struct WordList {
 	char* values[NUMW];
 	int AmountWords = 0;

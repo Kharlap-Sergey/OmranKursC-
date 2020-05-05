@@ -2,9 +2,6 @@
 #include <fstream>
 using namespace std;
 
-fstream out;
-ifstream in;
-
 struct Matrix {
 	int n, m; // размерность матрицы
 	double* values; // ссылка на элементы матрицы 

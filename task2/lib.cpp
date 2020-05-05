@@ -1,6 +1,5 @@
 #include "lib.h"
 
-
 void ansver() {
 	Matrix* matrix = read("input.txt");
 	swapMaxElements(matrix);
@@ -68,6 +67,7 @@ void swapMaxElements(Matrix* matr) {
 Matrix* read(const char* filename) {
 	Matrix* matr = new Matrix;
 
+	ifstream in;
 	in.open(filename);
 	in >> matr->n;
 	in >> matr->m;
@@ -85,7 +85,7 @@ Matrix* read(const char* filename) {
 
 
 void print(const char* filename, Matrix* matr) {
-
+	ofstream out;
 	out.open(filename);
 	out << matr->n << ' ';
 	out << matr->m << endl;;

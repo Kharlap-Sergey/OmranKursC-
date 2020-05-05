@@ -1,12 +1,13 @@
 #include "lib.h"
 
 void ansver() {
-	words = read("words.txt");
-	prefixes = read("prefixes.txt");
+	char* words = read("words.txt");
+	char* prefixes = read("prefixes.txt");
 
 	WordList* wordsList = extractWords(words);
 	WordList* prefixesList = extractWords(prefixes);
 
+	ofstream out;
 	out.open("output.txt");
 	for (int i = 0; i < prefixesList->AmountWords; i++) {
 		if (strlen(prefixesList->values[i]) == 0) continue;
@@ -93,6 +94,7 @@ WordList* extractWords(char* text) {
 }
 
 char* read(const char* filename) {
+	ifstream in;
 	in.open(filename);
 	char* pointer = new char[MAXLEN];
 	in.get(pointer, MAXLEN - 10, '.');

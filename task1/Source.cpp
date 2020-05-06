@@ -34,8 +34,8 @@ int main() {
 			break;
 		}
 		case 2: {
-			char *words = echo("words.txt");
-			char *prefixes = echo("prefixes.txt");
+			char *words = reshow("words.txt");
+			char *prefixes = reshow("prefixes.txt");
 
 			cout << "преставки:";
 			cout << prefixes << endl;;
@@ -49,7 +49,7 @@ int main() {
 			break;
 		}
 		case 4: {
-			char* ans = echo("output.txt");
+			char* ans = reshow("output.txt");
 			cout << ans << endl << endl;
 			break;
 		}

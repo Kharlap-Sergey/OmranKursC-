@@ -6,7 +6,7 @@ void ansver() {
 	print("output.txt", matrix);
 }
 
-char* echo(const char* file) {
+char* reshow(const char* file) {
 	char* text = new char[10000];
 	ifstream in;
 	in.open(file);

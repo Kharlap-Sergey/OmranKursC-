@@ -33,7 +33,7 @@ int main() {
 			break;
 		}
 		case 2: {
-			char* inf = echo("input.txt");
+			char* inf = reshow("input.txt");
 			cout << inf << endl << endl;
 			break;
 		}
@@ -44,7 +44,7 @@ int main() {
 			break;
 		}
 		case 4: {
-			char* ans = echo("output.txt");
+			char* ans = reshow("output.txt");
 			cout << ans << endl << endl;
 			break;
 		}

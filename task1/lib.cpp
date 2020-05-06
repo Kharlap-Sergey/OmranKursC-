@@ -4,17 +4,17 @@ void ansver() {
 	char* words = read("words.txt");
 	char* prefixes = read("prefixes.txt");
 
-	WordList* wordsList = extractWords(words);
-	WordList* prefixesList = extractWords(prefixes);
+	StringList* wordsList = extractWords(words);
+	StringList* prefixesList = extractWords(prefixes);
 
 	ofstream out;
 	out.open("output.txt");
-	for (int i = 0; i < prefixesList->AmountWords; i++) {
-		if (strlen(prefixesList->values[i]) == 0) continue;
-		out << (prefixesList->values[i]) << ":\n";
-		for (int j = 0; j < wordsList->AmountWords; j++) {
-			if (isPrefixExist(prefixesList->values[i], wordsList->values[j])) {
-				out << getAns(prefixesList->values[i], wordsList->values[j]) << " ";
+	for (int i = 0; i < prefixesList->wordCount; i++) {
+		if (strlen(prefixesList->strings[i]) == 0) continue;
+		out << (prefixesList->strings[i]) << ":\n";
+		for (int j = 0; j < wordsList->wordCount; j++) {
+			if (isPrefixExist(prefixesList->strings[i], wordsList->strings[j])) {
+				out << getAns(prefixesList->strings[i], wordsList->strings[j]) << " ";
 			}
 		}
 		out << '\n';
@@ -24,7 +24,7 @@ void ansver() {
 	out.close();
 }
 
-char* echo(const char* file) {
+char* reshow(const char* file) {
 	char* text = new char[10000];
 	ifstream in;
 	in.open(file);
@@ -63,9 +63,9 @@ bool isRussianLetter(char c) {
 	return ans;
 }
 
-WordList* extractWords(char* text) {
-	WordList* ans = new WordList;
-	ans->AmountWords = 0;
+StringList* extractWords(char* text) {
+	StringList* ans = new StringList;
+	ans->wordCount = 0;
 	bool isWordStart = false;
 	char* boof = new char[NW + 1];
 	int len = 0;
@@ -78,8 +78,8 @@ WordList* extractWords(char* text) {
 		else {
 			if (isWordStart) {
 				boof[len] = '\0';
-				ans->values[ans->AmountWords] = boof;
-				ans->AmountWords++;
+				ans->strings[ans->wordCount] = boof;
+				ans->wordCount++;
 				isWordStart = false;
 				len = 0;
 				boof = new char[NW + 1];
@@ -87,8 +87,8 @@ WordList* extractWords(char* text) {
 		}
 	}
 	boof[len] = '\0';
-	ans->values[ans->AmountWords] = boof;
-	ans->AmountWords++;
+	ans->strings[ans->wordCount] = boof;
+	ans->wordCount++;
 
 	return ans;
 }

@@ -18,7 +18,6 @@ void ansver() {
 			}
 		}
 		out << '\n';
-
 	}
 	out << '/';
 	out.close();
@@ -97,7 +96,7 @@ char* read(const char* filename) {
 	ifstream in;
 	in.open(filename);
 	char* pointer = new char[MAXLEN];
-	in.get(pointer, MAXLEN - 10, '.');
+	in.get(pointer, MAXLEN - 10, '/');
 	in.close();
 	return pointer;
 }
